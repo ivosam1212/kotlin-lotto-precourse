@@ -14,7 +14,8 @@ during the mission.
 - Validation function to check that the purchase amount is higher than 1000. 
 - Function to generate the number of tickets according to the input amount.
 - Function to populate the ticket arrays with six unique random numbers from 1 to 45.
-- Validation function to check if the numbers are unique. This 
+- ~~Validation function to check if the numbers are unique.~~ No longer needed since the previous function creates unique
+values.
 - Function to display the generated tickets.
 - Input function to get the winning numbers, separated by comma.
 - Validation function to check that winning numbers are between 1 and 45. 
