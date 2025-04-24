@@ -48,9 +48,18 @@ private fun displayTickets(tickets: List<List<Int>>) {
     }
 }
 
+fun getWinningNumbers(): List<Int> {
+    println("\nPlease enter last week's winning numbers.")
+    val winningNumsString = Console.readLine()
+    val winningNumbers = winningNumsString.split(",").map { it.toInt() }
+    return winningNumbers
+}
+
 fun main() {
     val purchaseAmount: Int = validatePurchaseAmount(getPurchaseAmount())
     val ticketNum: Int = numberOfTickets(purchaseAmount)
     val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
     displayTickets(tickets)
+
+    Lotto(getWinningNumbers())
 }
