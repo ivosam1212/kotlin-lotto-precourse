@@ -32,7 +32,7 @@ private fun singleTicketGenerator(): List<Int> {
     return numbers
 }
 
-fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
+private fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
     val tickets = mutableListOf<List<Int>>()
 
     repeat (ticketNum) {
@@ -42,9 +42,15 @@ fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
     return tickets
 }
 
+private fun displayTickets(tickets: List<List<Int>>) {
+    for (ticket in tickets) {
+        println(ticket)
+    }
+}
+
 fun main() {
     val purchaseAmount: Int = validatePurchaseAmount(getPurchaseAmount())
     val ticketNum: Int = numberOfTickets(purchaseAmount)
     val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
-    println("$tickets")
+    displayTickets(tickets)
 }
