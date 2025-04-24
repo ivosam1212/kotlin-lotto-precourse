@@ -21,7 +21,8 @@ values.
 - Validation function to check that winning numbers are between 1 and 45. 
 This function works for the winning numbers and for the bonus number.
 - Validation function to check that the winning numbers are unique.
-- Validation function to check that the winning numbers are comma separated.
+- ~~Validation function to check that the winning numbers are comma separated.~~ Not required in programming nor 
+functional requirements.
 - Function to split the winning numbers string into an array of numbers to check individually.
 - Function to get the bonus number.
 - Function that checks for matches of the winning numbers in each ticket array.
