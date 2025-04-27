@@ -23,7 +23,8 @@ This function works for the winning numbers and for the bonus number.
 - Validation function to check that the winning numbers are unique.
 - ~~Validation function to check that the winning numbers are comma separated.~~ Not required in programming nor 
 functional requirements.
-- Function to split the winning numbers string into an array of numbers to check individually.
+- ~~Function to split the winning numbers string into an array of numbers to check individually.~~ No longer needed 
+since the comparison can be made using the list of winning tickets agains the list of lists of numbers (each ticket).
 - Function to get the bonus number.
 - Function that checks for matches of the winning numbers in each ticket array.
 - Function that classifies the number of matches.
