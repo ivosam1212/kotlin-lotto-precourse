@@ -15,12 +15,12 @@ class Lotto(private val numbers: List<Int>) {
         validateUniqueNumbers(numbers)
     }
 
-    fun validateNumbers(numbers: List<Int>) {
+    private fun validateNumbers(numbers: List<Int>) {
         if (numbers.any { it < 1 || it > 45 })
             throw IllegalArgumentException("[ERROR] Lotto numbers must be between 1 and 45.")
     }
 
-    fun validateUniqueNumbers(numbers: List<Int>) {
+    private fun validateUniqueNumbers(numbers: List<Int>) {
         if (numbers.size != numbers.distinct().size) {
             throw IllegalArgumentException("[ERROR] Lotto numbers must be unique.")
         }
