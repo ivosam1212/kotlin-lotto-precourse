@@ -26,5 +26,10 @@ class Lotto(private val numbers: List<Int>) {
         }
     }
 
+    fun checkMatchingNumbers(tickets: List<List<Int>>, winningNumbers: List<Int>): List<Int> {
+        return tickets.map { ticket ->
+            ticket.count { number -> number in winningNumbers}
+        }
+    }
 
 }

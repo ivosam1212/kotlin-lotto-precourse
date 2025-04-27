@@ -32,7 +32,7 @@ private fun singleTicketGenerator(): List<Int> {
     return numbers
 }
 
-private fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
+fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
     val tickets = mutableListOf<List<Int>>()
 
     repeat (ticketNum) {
