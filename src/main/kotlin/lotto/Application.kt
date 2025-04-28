@@ -3,25 +3,29 @@ package lotto
 import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
-    val inputView = InputView()
-    val outputView = OutputView()
+    try {
+        val inputView = InputView()
+        val outputView = OutputView()
 
-    val purchaseAmount = inputView.getPurchaseAmount()
-    val ticketNum: Int = numberOfTickets(purchaseAmount)
-    outputView.displayTicketNumber(ticketNum)
+        val purchaseAmount = inputView.getPurchaseAmount()
+        val ticketNum: Int = numberOfTickets(purchaseAmount)
+        outputView.displayTicketNumber(ticketNum)
 
-    val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
-    outputView.displayTickets(tickets)
+        val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
+        outputView.displayTickets(tickets)
 
-    val winningNumbers = inputView.getWinningNumbers()
-    val lotto = Lotto(winningNumbers)
-    val bonusNumber = getBonusNumber(inputView, lotto)
+        val winningNumbers = inputView.getWinningNumbers()
+        val lotto = Lotto(winningNumbers)
+        val bonusNumber = getBonusNumber(inputView, lotto)
 
-    val matchResults = lotto.checkMatchingNumbers(tickets, bonusNumber)
-    val totalPrize = lotto.calculateTotalPrize(matchResults)
-    val returnRate = lotto.calculateReturnRate(purchaseAmount, totalPrize)
+        val matchResults = lotto.checkMatchingNumbers(tickets, bonusNumber)
+        val totalPrize = lotto.calculateTotalPrize(matchResults)
+        val returnRate = lotto.calculateReturnRate(purchaseAmount, totalPrize)
 
-    outputView.displayWinningResults(matchResults, returnRate)
+        outputView.displayWinningResults(matchResults, returnRate)
+    } catch (e: Exception) {
+        println(e.message)
+    }
 }
 
 private fun getBonusNumber(inputView: InputView, lotto: Lotto): Int {

@@ -6,7 +6,11 @@ class InputView {
 
     fun getPurchaseAmount(): Int {
         println("Please enter the purchase amount.")
-        return Console.readLine().toInt()
+        try {
+            return Console.readLine().toInt()
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("[ERROR] Invalid purchase amount. Please enter a numeric value.")
+        }
     }
 
     fun getWinningNumbers(): List<Int> {
