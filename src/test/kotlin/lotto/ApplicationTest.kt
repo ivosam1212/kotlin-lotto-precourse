@@ -48,6 +48,14 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `test bonus number already in winning numbers`() {
+        assertSimpleTest {
+            runException("8000", "1,2,3,4,5,6", "3")
+            assertThat(output()).contains(ERROR_MESSAGE)
+        }
+    }
+
     override fun runMain() {
         main()
     }
