@@ -2,6 +2,34 @@ package lotto
 
 import camp.nextstep.edu.missionutils.Randoms
 
+fun main() {
+    val inputView = InputView()
+    val outputView = OutputView()
+
+    val purchaseAmount = inputView.getPurchaseAmount()
+    val ticketNum: Int = numberOfTickets(purchaseAmount)
+    outputView.displayTicketNumber(ticketNum)
+
+    val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
+    outputView.displayTickets(tickets)
+
+    val winningNumbers = inputView.getWinningNumbers()
+    val lotto = Lotto(winningNumbers)
+    val bonusNumber = getBonusNumber(inputView, lotto)
+
+}
+
+private fun getBonusNumber(inputView: InputView, lotto: Lotto): Int {
+    val bonusNumber = inputView.getBonusNumber()
+    lotto.validateBonusNumber(bonusNumber)
+    lotto.validateBonusWinningUnique(bonusNumber)
+    return bonusNumber
+}
+
+private fun numberOfTickets(purchaseAmount: Int): Int {
+    return purchaseAmount / 1000
+}
+
 private fun singleTicketGenerator(): List<Int> {
     val numbers = mutableListOf<Int>()
 
@@ -21,16 +49,4 @@ fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
         tickets.add(ticket)
     }
     return tickets
-}
-
-fun main() {
-    val inputView = InputView()
-    val outputView = OutputView()
-
-    val purchaseAmount = inputView.getPurchaseAmount()
-    val ticketNum: Int = outputView.numberOfTickets(purchaseAmount)
-    val tickets: List<List<Int>> = ticketsGenerator(ticketNum)
-    outputView.displayTickets(tickets)
-
-    Lotto(inputView.getWinningNumbers())
 }

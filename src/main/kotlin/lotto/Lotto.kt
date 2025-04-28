@@ -10,7 +10,7 @@ class Lotto(private val numbers: List<Int>) {
 
     // TODO: Implement additional functions
 
-    fun winningNumbersValidations(numbers: List<Int>) {
+    private fun winningNumbersValidations(numbers: List<Int>) {
         validateNumbers(numbers)
         validateUniqueNumbers(numbers)
     }
@@ -24,6 +24,16 @@ class Lotto(private val numbers: List<Int>) {
         if (numbers.size != numbers.distinct().size) {
             throw IllegalArgumentException("[ERROR] Lotto numbers must be unique.")
         }
+    }
+
+    fun validateBonusNumber(number: Int) {
+        if (number < 1 || number > 45 )
+            throw IllegalArgumentException("[ERROR] Lotto numbers must be between 1 and 45.")
+    }
+
+    fun validateBonusWinningUnique(number: Int) {
+        if (number in numbers)
+            throw IllegalArgumentException("[ERROR] Bonus number must be different than the winning numbers.")
     }
 
     fun checkMatchingNumbers(tickets: List<List<Int>>, winningNumbers: List<Int>): List<Int> {

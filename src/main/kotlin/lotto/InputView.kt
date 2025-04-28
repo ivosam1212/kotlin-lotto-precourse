@@ -6,23 +6,17 @@ class InputView {
 
     fun getPurchaseAmount(): Int {
         println("Please enter the purchase amount.")
-        val purchaseAmount = Console.readLine().toInt()
-        validatePurchaseAmount(purchaseAmount)
-        return purchaseAmount
-    }
-
-    private fun validatePurchaseAmount(purchaseAmount: Int): Int {
-        if (purchaseAmount < 1000)
-            throw IllegalArgumentException("[ERROR] The purchase amount must be 1000 or higher")
-        return purchaseAmount
+        return Console.readLine().toInt()
     }
 
     fun getWinningNumbers(): List<Int> {
         println("\nPlease enter last week's winning numbers.")
-        val winningNumsString = Console.readLine()
-        val winningNumbers = winningNumsString.split(",").map { it.toInt() }
-        return winningNumbers
+        val winningNums = Console.readLine()
+        return winningNums.split(",").map { it.toInt() }
     }
 
-
+    fun getBonusNumber(): Int {
+        println("\nPlease enter the bonus number.")
+        return Console.readLine().toInt()
+    }
 }

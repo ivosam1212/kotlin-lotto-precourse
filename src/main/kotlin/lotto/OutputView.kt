@@ -2,10 +2,8 @@ package lotto
 
 class OutputView {
 
-    fun numberOfTickets(purchaseAmount: Int): Int {
-        val ticketNumb: Int = purchaseAmount / 1000
-        println("\nYou have purchased $ticketNumb tickets.")
-        return ticketNumb
+    fun displayTicketNumber(ticketNum: Int) {
+        println("\nYou have purchased $ticketNum tickets.")
     }
 
     fun displayTickets(tickets: List<List<Int>>) {
