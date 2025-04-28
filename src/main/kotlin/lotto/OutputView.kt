@@ -12,7 +12,7 @@ class OutputView {
         }
     }
 
-    fun displayWinningResults(matchResults: Map<Lotto.PrizeTier, Int>, purchaseAmount: Int) {
+    fun displayWinningResults(matchResults: Map<Lotto.PrizeTier, Int>, returnRate: Double) {
         println("\nWinning Statistics")
         println("---")
 
@@ -20,5 +20,11 @@ class OutputView {
             val count = matchResults.getOrDefault(tier, 0)
             println(tier.getDisplayText(count))
         }
+
+        displayReturnRate(returnRate)
+    }
+
+    fun displayReturnRate(returnRate: Double) {
+        println("Total return rate is ${"%.1f".format(returnRate)}%.")
     }
 }

@@ -92,4 +92,17 @@ class Lotto(private val numbers: List<Int>) {
         }
     }
 
+    fun calculateTotalPrize(matchResults: Map<PrizeTier, Int>): Int {
+        return matchResults.entries.sumOf { (tier, count) ->
+            tier.prize * count
+        }
+    }
+
+    fun calculateReturnRate(purchaseAmount: Int, totalPrize: Int): Double {
+        return if (purchaseAmount > 0) {
+            (totalPrize.toDouble() / purchaseAmount) * 100
+        } else {
+            0.0
+        }
+    }
 }
