@@ -11,4 +11,14 @@ class OutputView {
             println(ticket)
         }
     }
+
+    fun displayWinningResults(matchResults: Map<Lotto.PrizeTier, Int>, purchaseAmount: Int) {
+        println("\nWinning Statistics")
+        println("---")
+
+        Lotto.PrizeTier.values().forEach { tier ->
+            val count = matchResults.getOrDefault(tier, 0)
+            println(tier.getDisplayText(count))
+        }
+    }
 }

@@ -91,4 +91,5 @@ class Lotto(private val numbers: List<Int>) {
             return "$description ($prizeFormatted KRW) – $count tickets"
         }
     }
+
 }
