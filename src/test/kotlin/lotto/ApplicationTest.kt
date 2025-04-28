@@ -33,9 +33,17 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `test winning numbers with duplicate values`() {
+    fun `test winning numbers out of range`() {
         assertSimpleTest {
-            runException("8000", "1,2,3,4,5,5")
+            runException("8000", "1,2,3,4,5,46")
+            assertThat(output()).contains(ERROR_MESSAGE)
+        }
+    }
+
+    @Test
+    fun `test bonus number out of range`() {
+        assertSimpleTest {
+            runException("8000", "1,2,3,4,5,6", "46")
             assertThat(output()).contains(ERROR_MESSAGE)
         }
     }
