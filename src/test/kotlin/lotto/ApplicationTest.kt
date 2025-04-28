@@ -24,6 +24,14 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `test invalid winning numbers format`() {
+        assertSimpleTest {
+            runException("8000", "1,2,3,4,5")
+            assertThat(output()).contains("[ERROR] Lotto must contain exactly 6 numbers")
+        }
+    }
+
     override fun runMain() {
         main()
     }
