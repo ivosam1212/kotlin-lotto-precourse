@@ -8,6 +8,7 @@ fun main() {
         val outputView = OutputView()
 
         val purchaseAmount = inputView.getPurchaseAmount()
+        validatePurchaseAmount(purchaseAmount)
         val ticketNum: Int = numberOfTickets(purchaseAmount)
         outputView.displayTicketNumber(ticketNum)
 
@@ -25,6 +26,12 @@ fun main() {
         outputView.displayWinningResults(matchResults, returnRate)
     } catch (e: Exception) {
         println(e.message)
+    }
+}
+
+private fun validatePurchaseAmount(purchaseAmount: Int) {
+    if (purchaseAmount < 1000) {
+        throw IllegalArgumentException("[ERROR] The purchase amount must be 1000 or higher")
     }
 }
 
