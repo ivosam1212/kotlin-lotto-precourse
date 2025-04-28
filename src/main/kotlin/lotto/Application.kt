@@ -17,6 +17,7 @@ fun main() {
     val lotto = Lotto(winningNumbers)
     val bonusNumber = getBonusNumber(inputView, lotto)
 
+    val matchResults = lotto.checkMatchingNumbers(tickets, bonusNumber)
 }
 
 private fun getBonusNumber(inputView: InputView, lotto: Lotto): Int {
