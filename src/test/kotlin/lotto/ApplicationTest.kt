@@ -20,7 +20,7 @@ class ApplicationTest : NsTest() {
     fun `test invalid purchase amount - less than minimum`() {
         assertSimpleTest {
             runException("900")
-            assertThat(output()).contains("[ERROR] The purchase amount must be 1000 or higher")
+            assertThat(output()).contains(ERROR_MESSAGE)
         }
     }
 
@@ -28,7 +28,15 @@ class ApplicationTest : NsTest() {
     fun `test invalid winning numbers format`() {
         assertSimpleTest {
             runException("8000", "1,2,3,4,5")
-            assertThat(output()).contains("[ERROR] Lotto must contain exactly 6 numbers")
+            assertThat(output()).contains(ERROR_MESSAGE)
+        }
+    }
+
+    @Test
+    fun `test winning numbers with duplicate values`() {
+        assertSimpleTest {
+            runException("8000", "1,2,3,4,5,5")
+            assertThat(output()).contains(ERROR_MESSAGE)
         }
     }
 
