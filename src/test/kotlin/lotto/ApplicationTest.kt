@@ -56,6 +56,29 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `test number of tickets for purchase amount`() {
+        assertSimpleTest {
+            run("1000", "1,2,3,4,5,6", "7")
+            assertThat(output()).contains("You have purchased 1 tickets.")
+        }
+    }
+
+    @Test
+    fun `test high match count scenario`() {
+        assertRandomUniqueNumbersInRangeTest(
+            {
+                run("1000", "1,2,3,4,5,6", "7")
+                assertThat(output()).contains(
+                    "You have purchased 1 tickets.",
+                    "6 Matches (2,000,000,000 KRW) – 1 tickets",
+                    "Total return rate is 200,000,000.0%."
+                )
+            },
+            listOf(1, 2, 3, 4, 5, 6) // Perfect match
+        )
+    }
+
     override fun runMain() {
         main()
     }
