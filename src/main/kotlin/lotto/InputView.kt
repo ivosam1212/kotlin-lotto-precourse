@@ -15,12 +15,20 @@ class InputView {
 
     fun getWinningNumbers(): List<Int> {
         println("\nPlease enter last week's winning numbers.")
-        val winningNums = Console.readLine()
-        return winningNums.split(",").map { it.toInt() }
+        try {
+            val winningNums = Console.readLine()
+            return winningNums.split(",").map { it.toInt() }
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("[ERROR] Invalid winning numbers. Please enter valid numeric values.")
+        }
     }
 
     fun getBonusNumber(): Int {
         println("\nPlease enter the bonus number.")
-        return Console.readLine().toInt()
+        try {
+            return Console.readLine().toInt()
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("[ERROR] Invalid bonus number. Please enter a valid numeric value.")
+        }
     }
 }

@@ -24,7 +24,7 @@ class OutputView {
         displayReturnRate(returnRate)
     }
 
-    fun displayReturnRate(returnRate: Double) {
+    private fun displayReturnRate(returnRate: Double) {
         println("Total return rate is ${"%.1f".format(returnRate)}%.")
     }
 }

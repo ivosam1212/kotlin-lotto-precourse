@@ -47,14 +47,7 @@ private fun numberOfTickets(purchaseAmount: Int): Int {
 }
 
 private fun singleTicketGenerator(): List<Int> {
-    val numbers = mutableListOf<Int>()
-
-    while (numbers.size < 6) {
-        val randomNumber = Randoms.pickNumberInRange(1, 45)
-        if (!numbers.contains(randomNumber))
-            numbers.add(randomNumber)
-    }
-    return numbers
+    return Randoms.pickUniqueNumbersInRange(1, 45, 6).sorted()
 }
 
 fun ticketsGenerator(ticketNum: Int): List<List<Int>> {
